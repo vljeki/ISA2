@@ -1,0 +1,28 @@
+﻿<Window x:Class="WPFEvents.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFEvents"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="419*"/>
+            <RowDefinition Height="28*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="button" Content="Click me" HorizontalAlignment="Left" VerticalAlignment="Top" Width="109" Margin="152,92,0,0" RenderTransformOrigin="0.5,0.5" Height="58" Click="Button_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.686"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Label x:Name="myLabel" Content="Label" HorizontalAlignment="Left" Height="68" Margin="437,205,0,0" VerticalAlignment="Top" Width="125"/>
+        <Label x:Name="label2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="6.309,10.041" Margin="203,229,0,0" Height="44" Width="80"/>
+
+    </Grid>
+</Window>
