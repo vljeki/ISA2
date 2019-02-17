@@ -63,6 +63,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Week3", "Week3", "{8E5FAE4F
 		Week3\returning-functions.js = Week3\returning-functions.js
 		Week3\revealing-module.js = Week3\revealing-module.js
 		Week3\scope-basics.js = Week3\scope-basics.js
+		Week3\strings.js = Week3\strings.js
 		Week3\template-literals.js = Week3\template-literals.js
 		Week3\this-keyword.html = Week3\this-keyword.html
 		Week3\this-keyword.js = Week3\this-keyword.js
