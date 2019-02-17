@@ -38,6 +38,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Week3", "Week3", "{8E5FAE4F-CF82-4939-A395-69B2F25816AB}"
 	ProjectSection(SolutionItems) = preProject
 		Week3\app.js = Week3\app.js
+		Week3\array-methods.js = Week3\array-methods.js
 		Week3\arrays.js = Week3\arrays.js
 		Week3\arrow-functions.js = Week3\arrow-functions.js
 		Week3\classes.js = Week3\classes.js
