@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Core;
+using Facade;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
 {
-    class EmployeeViewModelTests
+    [TestClass]
+    public class EmployeeViewModelTests
     {
+        private EmployeeViewModel o;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            0 = new EmployeeViewModel(null);
+        }
+
+
     }
 }
