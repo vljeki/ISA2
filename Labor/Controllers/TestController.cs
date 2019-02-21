@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Core;
 using Facade;
+using Infra;
 
 namespace Labor.Controllers
 {
@@ -12,10 +13,17 @@ namespace Labor.Controllers
     {  
         public ActionResult GetView()
         {
-            var emp = new Employee("Sukesh", "Marla", 20000);
-
-            var vmEmp = new EmployeeViewModel(emp, "Admin");
-            return View("MyView", vmEmp);
+            var model = new EmployeeListViewModel();
+            var employees = Employees.Get();
+            var list = new List<EmployeeViewModel>();
+            foreach (var e in employees)
+            {
+                var employee = new EmployeeViewModel(e);
+                list.Add(employee);
+            }
+            model.Employees = list;
+            model.UserName = "Admin";
+            return View("MyView", model);
         }
     }
 }
