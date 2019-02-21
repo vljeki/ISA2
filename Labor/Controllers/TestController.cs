@@ -21,7 +21,7 @@ namespace Labor.Controllers
             emp.LastName = "Marla";
             emp.Salary = 20000;
 
-            ViewData["Employee"] = emp;
+            ViewBag.Employee = emp;
             return View("MyView");
         }
     }

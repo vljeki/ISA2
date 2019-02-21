@@ -11,13 +11,13 @@
 </head>
 <body>
 <div>
-    @{
-        Labor.Models.Employee emp = (Labor.Models.Employee)
-            ViewData["Employee"];
-    }
-    <b>Employee Details</b><br />
-    Employee Name: @emp.FirstName@emp.LastName<br />
-    Employee Salary: @emp.Salary.ToString("C")
+@{
+    var emp = (Employee)
+        ViewBag.Employee;
+}
+<b>Employee Details</b><br />
+Employee Name: @emp.FirstName@emp.LastName<br />
+Employee Salary: @emp.Salary.ToString("C")
        
 </div> 
 </body>
