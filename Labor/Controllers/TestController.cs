@@ -12,5 +12,10 @@ namespace Labor.Controllers
         {
             return "Hello world!";
         }
+
+        public ActionResult GetView()
+        {
+            return View("MyView");
+        }
     }
 }
