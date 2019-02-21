@@ -11,7 +11,10 @@ namespace Facade
     {
         public EmployeeViewModel(Employee emp, string userName)
         {
-            
+            setName(emp);
+            setSalary(emp);
+            setColor(emp);
+            setUserName(userName);
         }
         public string EmployeeName { get; set; }
         public string Salary { get; set; }
