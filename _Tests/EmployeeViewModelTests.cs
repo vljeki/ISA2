@@ -1,4 +1,4 @@
-using Core;
+﻿using Core;
 using Facade;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -12,7 +12,7 @@ namespace Tests
         [TestInitialize]
         public void TestInitialize()
         {
-            o = new EmployeeViewModel(null);
+            0 = new EmployeeViewModel(null);
         }
 
         [TestMethod]
@@ -25,7 +25,7 @@ namespace Tests
         public void SalaryColorIsRedIfSetColorArgumentIsNullTest()
         {
             o.setColor(null);
-            Assert.AreEqual("red", o.SalaryColor);
+            Assert.AreEqual("red", o.SalayColor);
         }
         [TestMethod]
         public void SalaryColorIsYellowForHighSalariesTest()
