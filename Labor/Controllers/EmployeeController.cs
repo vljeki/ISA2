@@ -7,6 +7,7 @@ using Core;
 using Facade;
 using Infra;
 using Microsoft.AspNetCore.Authorization;
+using Labor.Filters;
 
 namespace Labor.Controllers
 {
@@ -35,10 +36,12 @@ namespace Labor.Controllers
         }
 
         [Authorize]
+        [AdminFilter]
         public ActionResult AddNew()
         {
             return View("CreateEmployee", new CreateEmployeeViewModel());
         }
+        [AdminFilter]
         public ActionResult SaveEmployee(Employee e, string BtnSubmit)
         {
             if (BtnSubmit != "Save Employee") return RedirectToAction("Index");
