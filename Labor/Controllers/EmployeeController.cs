@@ -35,7 +35,9 @@ namespace Labor.Controllers
             switch (BtnSubmit)
             {
                 case "Save Employee":
-                    return Content(e.FirstName + "|" + e.LastName + "|" + e.Salary);
+                    Employees emp = new Employees();
+                    emp.Save(e, db);
+                    return RedirectToAction("Index");
                 case "Cancel":
                     return RedirectToAction("Index");
             }

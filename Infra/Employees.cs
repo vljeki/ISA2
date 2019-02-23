@@ -7,16 +7,18 @@ using Facade;
 
 namespace Infra
 {
-    public static class Employees
+    public class Employees
     {
         public static List<Employee> Get(SalesDbContext db)
         {
             return db.Employees.ToList();
         }
 
-        public static object Get()
+        public Employee Save(Employee e, SalesDbContext db)
         {
-            throw new NotImplementedException();
+            db.Employees.Add(e);
+            db.SaveChanges();
+            return e;
         }
     }
 }
