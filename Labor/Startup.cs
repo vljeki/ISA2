@@ -35,6 +35,8 @@ namespace Labor
                 {
                     options.LoginPath = new PathString("/Authentication/Login");
                 });
+            services.AddDistributedMemoryCache();
+            services.AddSession();
 
             services.AddMvc();
         }
@@ -55,6 +57,7 @@ namespace Labor
             app.UseStaticFiles();
 
             app.UseAuthentication();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

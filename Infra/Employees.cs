@@ -23,7 +23,10 @@ namespace Infra
 
         public static bool IsValidUser(UserDetails user)
         {
-            return user.UserName == "Admin" && user.Password == "Admin";
+            if (user.UserName == "Admin" && user.Password == "Admin") return true;
+            if (user.UserName == "Mari" && user.Password == "Mets") return true;
+            return false;
         }
     }
 }
+ 
