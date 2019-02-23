@@ -1,6 +1,11 @@
 ﻿@model Core.UserDetails
 @{
     ViewBag.Title = "Login";
+    <script src="~/lib/jquery/"></script>
+    <script src="~/lib/jquery-validation/"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/"></script>
+
+
 }
 <h2>Login</h2>
 <body>
@@ -12,10 +17,10 @@
             @Html.TextBoxFor(x => x.UserName)
             @Html.ValidationMessageFor(x => x.UserName)
             <br />
-                @Html.LabelFor(c => c.Password)
-                @Html.PasswordFor(x => x.Password)
-                <br />
-                <input type="submit" name="BtnSubmit" value="Login" />
+            @Html.LabelFor(c => c.Password)
+            @Html.PasswordFor(x => x.Password)
+            <br />
+            <input type="submit" name="BtnSubmit" value="Login" />
         }
     </div>
 </body>
