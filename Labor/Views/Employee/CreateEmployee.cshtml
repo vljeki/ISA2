@@ -1,22 +1,18 @@
 ﻿@{
-    Layout = null;
+    ViewBag.Title = "Create Employee";
 }
 <!DOCTYPE html>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>MyView</title>
-</head>
+<h2>Create Employee</h2>
 <body>
-    <a href="/Employee/AddNew">Add New</a>
-    <div>
-        <form action="/Employee/SaveEmployee" method="post">
-            First Name: <input type="text" id="TxtFName" name="FirstName" value="" /><br />
-            Last Name: <input type="text" id="TxtLName" name="LastName" value="" /><br />
-            Salary: <input type="text" id="TxtSalary" name="Salary" value="" /><br />
-            <input type="submit" name="BtnSave" value="Save Employee" />
-            <input type="button" name="BtnReset" value="Reset" />
-        </form>
-    </div>
+<div>
+    <form action="/Employee/SaveEmployee" method="post">
+        <p>First Name: <input type="text" id="TxtFName" name="FirstName" value="" /><p/>
+        <p>Last Name: <input type="text" id="TxtLName" name="LastName" value="" /><p/>
+        <p>Salary: <input type="text" id="TxtSalary" name="Salary" value="" /><p/>
+               <input type="submit" name="BtnSave" value="Save Employee" />
+               <input type="button" name="BtnReset" value="Reset" />
+    </form>
+</div>
 </body>
 </html>
