@@ -27,8 +27,15 @@ namespace Labor
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<SalesDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-            b => b.MigrationsAssembly("Labor")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
+                b => b.MigrationsAssembly("Labor")));
+
+            services.AddAuthentication("AuthScheme")
+                .AddCookie("AuthScheme", options =>
+                {
+                    options.LoginPath = new PathString("/Authentication/Login");
+                });
+
             services.AddMvc();
         }
 
@@ -38,16 +45,16 @@ namespace Labor
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseBrowserLink();
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

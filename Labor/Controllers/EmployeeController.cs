@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Core;
 using Facade;
 using Infra;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Labor.Controllers
 {
@@ -13,6 +14,8 @@ namespace Labor.Controllers
     {
         private readonly SalesDbContext db;
         public EmployeeController(SalesDbContext db) { this.db = db; }
+
+        [Authorize]
         public ActionResult Index()
         {
             var model = new EmployeeListViewModel();
@@ -26,6 +29,8 @@ namespace Labor.Controllers
             model.Employees = list;
             return View("Index", model);
         }
+
+        [Authorize]
         public ActionResult AddNew()
         {
             return View("CreateEmployee", new CreateEmployeeViewModel());
