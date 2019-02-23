@@ -17,8 +17,8 @@ function ContainsOnlyLetters() {
 }
 
 function LengthIsValid() {
-    if ((document.getElementById("TxtFName").value.lenght > 20)
-        || (document.getElementById("TxtLName").value.lenght > 20)) {
+    if ((document.getElementById("TxtFName").value.length > 20)
+        || (document.getElementById("TxtLName").value.length > 20)) {
         return "Length should be less than 20 characters!";
     }
     return "";

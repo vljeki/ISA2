@@ -49,6 +49,7 @@
     <Compile Include="NameValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SalaryValidation.cs" />
+    <Compile Include="UserDetails.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
