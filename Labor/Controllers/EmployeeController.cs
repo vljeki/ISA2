@@ -42,6 +42,7 @@ namespace Labor.Controllers
             return View("CreateEmployee", new CreateEmployeeViewModel());
         }
         [AdminFilter]
+        [ValidateAntiForgeryToken]
         public ActionResult SaveEmployee(Employee e, string BtnSubmit)
         {
             if (BtnSubmit != "Save Employee") return RedirectToAction("Index");
