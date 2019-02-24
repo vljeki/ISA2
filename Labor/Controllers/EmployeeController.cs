@@ -8,6 +8,7 @@ using Facade;
 using Infra;
 using Microsoft.AspNetCore.Authorization;
 using Labor.Filters;
+using Microsoft.EntityFrameworkCore;
 
 namespace Labor.Controllers
 {
@@ -26,6 +27,7 @@ namespace Labor.Controllers
             foreach (var e in employees)
             {
                 var employee = new EmployeeViewModel(e);
+                employee.EmployeeId = e.EmployeeId;
                 list.Add(employee);
             }
             model.Employees = list;
@@ -55,6 +57,25 @@ namespace Labor.Controllers
             Employees emp = new Employees();
             emp.Save(e, db);
             return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+            Employee employee = db.Employees.Find(id);
+            if (employee == null) return NotFound();
+            return View("Delete", employee);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var employee = await db.Employees.SingleOrDefaultAsync
+                (m => m.EmployeeId == id);
+            db.Employees.Remove(employee);
+            await db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
