@@ -56,8 +56,5 @@ namespace Tests
             o.setName(new Employee("First", "Last", 0));
             Assert.AreEqual("First Last", o.EmployeeName);
         }
-
-
-
     }
 }

@@ -11,6 +11,7 @@ namespace Facade
     {
         public EmployeeViewModel(Employee emp)
         {
+            if (emp is null) return;
             setName(emp);
             setSalary(emp);
             setColor(emp);
