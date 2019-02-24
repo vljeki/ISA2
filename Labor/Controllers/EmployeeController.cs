@@ -77,5 +77,40 @@ namespace Labor.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null) return NotFound();
+            var employee = await db.Employees.SingleOrDefaultAsync(m => m.EmployeeId == id);
+            if (employee == null) return NotFound();
+            return View("Edit", employee);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, 
+            [Bind("EmployeeId,FirstName,LastName,Salary")] Employee employee)
+        {
+            if (id != employee.EmployeeId) return NotFound();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    db.Update(employee);
+                    await db.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!EmployeeExists(employee.EmployeeId)) return NotFound();
+                    throw;
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(employee);
+        }
+        private bool EmployeeExists(int id)
+        {
+            return db.Employees.Any(e => e.EmployeeId == id);
+        }
     }
 }
