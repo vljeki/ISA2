@@ -19,7 +19,7 @@ namespace ContosoUniversity
             this.AddRange(items);
         }
 
-        public bool HasPreviosPage
+        public bool HasPreviousPage
         {
             get
             {
