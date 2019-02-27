@@ -93,7 +93,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Week5", "Week5", "{CEA231CA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EFMVC", "EFMVC", "{58C763CD-9900-426B-9128-20F4D18DFCB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoUniversity", "Week5\EFMVC\ContosoUniversity\ContosoUniversity.csproj", "{CE99C999-8BA6-4606-8836-FDD456822A08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity", "Week5\EFMVC\ContosoUniversity\ContosoUniversity.csproj", "{CE99C999-8BA6-4606-8836-FDD456822A08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
