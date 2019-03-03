@@ -49,10 +49,10 @@ namespace ContosoUniversity.Controllers
                     students = students.OrderByDescending(s => s.LastName);
                     break;
                 case "Date":
-                    students = students.OrderBy(s => s.HireDate);
+                    students = students.OrderBy(s => s.EnrollmentDate);
                     break;
                 case "date_desc":
-                    students = students.OrderByDescending(s => s.HireDate);
+                    students = students.OrderByDescending(s => s.EnrollmentDate);
                     break;
                 default:
                     students = students.OrderBy(s => s.LastName);
@@ -150,7 +150,7 @@ namespace ContosoUniversity.Controllers
             }
             var studentToUpdate = await _context.Students.SingleOrDefaultAsync(s => s.ID == id);
             if (await TryUpdateModelAsync<Student>(
-                studentToUpdate, "", s => s.FirstMidName, s => s.LastName, s => s.HireDate))
+                studentToUpdate, "", s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate))
             {
                 try
                 {

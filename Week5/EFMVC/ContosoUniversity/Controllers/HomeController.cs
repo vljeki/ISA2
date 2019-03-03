@@ -24,7 +24,7 @@ namespace ContosoUniversity.Controllers
         {
             IQueryable<EnrollmentDateGroup> data =
                 from student in _context.Students
-                group student by student.HireDate into dateGroup
+                group student by student.EnrollmentDate into dateGroup
                 select new EnrollmentDateGroup()
                 {
                     EnrollmentDate = dateGroup.Key,
