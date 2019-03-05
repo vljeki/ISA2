@@ -21,9 +21,13 @@ namespace ContosoUniversity.Migrations
 
             modelBuilder.Entity("ContosoUniversity.Models.Course", b =>
                 {
-                    b.Property<int>("CourseID");
+                    b.Property<int>("CourseID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Credits");
+
+                    b.Property<int>("DepartmentID");
 
                     b.Property<string>("Title");
 
@@ -61,12 +65,9 @@ namespace ContosoUniversity.Migrations
 
                     b.Property<DateTime>("EnrollmentDate");
 
-                    b.Property<string>("FirstMidName")
-                        .HasColumnName("FirstName")
-                        .HasMaxLength(50);
+                    b.Property<string>("FirstMidName");
 
-                    b.Property<string>("LastName")
-                        .HasMaxLength(50);
+                    b.Property<string>("LastName");
 
                     b.HasKey("ID");
 
