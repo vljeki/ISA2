@@ -18,7 +18,7 @@ namespace ContosoUniversity.Controllers
         public HomeController(SchoolContext context)
         {
             _context = context;
-        }
+        } 
 
         public async Task<ActionResult> About()
         {
