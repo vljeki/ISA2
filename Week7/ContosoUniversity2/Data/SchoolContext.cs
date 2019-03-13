@@ -13,6 +13,8 @@ namespace ContosoUniversity2.Models
         {
         }
 
-        public DbSet<ContosoUniversity2.Models.Student> Student { get; set; }
+        public DbSet<Student> Student { get; set; }
+        public DbSet<Enrollment> Enrollment { get; set; }
+        public DbSet<Course> Course { get; set; }
     }
 }
