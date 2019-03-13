@@ -15,7 +15,7 @@ namespace ContosoUniversity2.Pages.Instructors
         private readonly SchoolContext _context;
 
         public IndexModel(SchoolContext context)
-        {
+        { 
             _context = context;
         }
 
