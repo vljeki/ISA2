@@ -11,9 +11,9 @@ namespace ContosoUniversity2.Pages.Courses
 {
     public class DeleteModel : PageModel
     {
-        private readonly ContosoUniversity2.Models.SchoolContext _context;
+        private readonly SchoolContext _context;
 
-        public DeleteModel(ContosoUniversity2.Models.SchoolContext context)
+        public DeleteModel(SchoolContext context)
         {
             _context = context;
         }
@@ -29,7 +29,9 @@ namespace ContosoUniversity2.Pages.Courses
             }
 
             Course = await _context.Courses
-                .Include(c => c.Department).FirstOrDefaultAsync(m => m.CourseID == id);
+                .AsNoTracking()
+                .Include(c => c.Department)
+                .FirstOrDefaultAsync(m => m.CourseID == id);
 
             if (Course == null)
             {
@@ -45,7 +47,9 @@ namespace ContosoUniversity2.Pages.Courses
                 return NotFound();
             }
 
-            Course = await _context.Courses.FindAsync(id);
+            Course = await _context.Courses
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.CourseID == id);
 
             if (Course != null)
             {
