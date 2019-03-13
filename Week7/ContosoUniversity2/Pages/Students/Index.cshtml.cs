@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ContosoUniversity2.Models;
+using ContosoUniversity;
 
 namespace ContosoUniversity2.Pages.Students
 {
@@ -23,12 +24,21 @@ namespace ContosoUniversity2.Pages.Students
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
 
-        public IList<Student> Student { get;set; }
+        public PaginatedList<Student> Student { get;set; }
 
-        public async Task OnGetAsync(string sortOrder, string searchString)
+        public async Task OnGetAsync(string sortOrder, string searchString, string currentFilter, int? pageIndex)
         {
+            CurrentSort = sortOrder;
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+            if (searchString != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
             CurrentFilter = searchString;
 
             IQueryable<Student> studentIQ = from s in _context.Student
@@ -52,8 +62,8 @@ namespace ContosoUniversity2.Pages.Students
                     studentIQ = studentIQ.OrderBy(s => s.LastName);
                     break;
             }
-
-            Student = await studentIQ.AsNoTracking().ToListAsync();
+            int pageSize = 3;
+            Student = await PaginatedList<Student>.CreateAsync(studentIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
         }
     }
 }
