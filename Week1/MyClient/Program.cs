@@ -11,7 +11,7 @@ namespace MyClient
     {
         static void Main(string[] args)
         {
-            Scrape myScrape = new Scrape(); //references from MyCodeLibrary
+            //Scrape myScrape = new Scrape(); //references from MyCodeLibrary
             string value = myScrape.ScrapeWebPage("https://ois2.ttu.ee/uusois/uus_ois2.tud_leht");
             Console.WriteLine(value);
             Console.ReadLine();
